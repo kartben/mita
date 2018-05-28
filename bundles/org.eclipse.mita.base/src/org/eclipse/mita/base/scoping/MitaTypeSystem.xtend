@@ -13,7 +13,6 @@
 
 package org.eclipse.mita.base.scoping
 
-import org.eclipse.mita.library.^extension.LibraryExtensions
 import com.google.inject.Inject
 import java.util.Collections
 import org.eclipse.emf.common.util.URI
@@ -28,7 +27,7 @@ import org.eclipse.mita.base.types.typesystem.ITypeSystem
 class MitaTypeSystem extends GenericTypeSystem {
 
 	@Inject
-	protected TypesLibraryProvider libraryProvider
+	protected ILibraryProvider libraryProvider
 
 	public static val ITERABLE_TYPE = "iterable"
 	public static val REFERENCE_TYPE = "reference";
@@ -78,7 +77,7 @@ class MitaTypeSystem extends GenericTypeSystem {
 	protected def lazyLoadNativeTypes() {
 		if (!nativeTypesLoaded) {
 			// Load native types from stdlibs
-			LibraryExtensions.defaultLibraries.map[resourceUris].flatten.toSet.forEach [
+			libraryProvider.defaultLibraries.toSet.forEach [
 				exportedTypes.forEach [ type |
 					declareType(type.EObjectOrProxy as Type, (type.EObjectOrProxy as Type).name)
 				]

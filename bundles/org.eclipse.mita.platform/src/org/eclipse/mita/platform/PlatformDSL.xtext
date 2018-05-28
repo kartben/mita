@@ -29,7 +29,9 @@ SystemSpecification returns platform::SystemSpecification:
 /* PLATFORM SPEC *****************************************************************/
 
 PlatformSpecification returns platform::Platform: 
-	'platform' name=ID '{' (
+	'platform' name=ID '{' 
+		'module' module=STRING
+	(
 		('has' resources+=[platform::AbstractSystemResource])
 		| (events += SystemResourceEvent)
 	)* '}'
