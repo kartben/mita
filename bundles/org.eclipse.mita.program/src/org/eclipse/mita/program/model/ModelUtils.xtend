@@ -150,11 +150,12 @@ class ModelUtils {
 		val programResource = program.eResource;
 		val resourceSet = programResource.resourceSet;
 		
-		val libraries = typesLibraryProvider.getImportedLibraries(programResource)
-		val platformResourceUris = libraries.filter[r|r.fileExtension == 'platform']
+		val libraries = typesLibraryProvider.getImportedLibraries(programResource);
+		val platformResourceUris = libraries.filter[r|r.fileExtension == 'platform'];
 
-		val platforms = platformResourceUris.map[uri|resourceSet.getResource(uri, true).allContents.toIterable].flatten.
-			filter(Platform)
+		val platforms = platformResourceUris
+			.flatMap[uri| resourceSet.getResource(uri, true).allContents.toIterable ]
+			.filter(Platform)
 		if (platforms.length > 1) {
 			// TODO: handle this error properly
 		}

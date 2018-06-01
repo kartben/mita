@@ -118,15 +118,18 @@ class CompileCommand extends AbstractCommand {
 			}
 			cl = cl.getParent();
 		}
-		
-		rootURLs.flatMap[
-			val file = new File(it.path);
-			if(file.isDirectory) {
-				file.listChildren
-			} else {
-				it.listChildren
-			}
-		].filter[ it.endsWith(".mita") || it.endsWith(".platform") ]
+
+		rootURLs
+			.flatMap[
+				val file = new File(it.path);
+				if(file.isDirectory) {
+					file.listChildren
+				} else {
+					it.listChildren
+				}
+			]
+			.filter[ it.endsWith(".mita") || it.endsWith(".platform") ]
+			.map[ it.replace('classpath://', 'classpath:/') ]
 	}
 	
 	protected def Iterable<String> listChildren(File f) {

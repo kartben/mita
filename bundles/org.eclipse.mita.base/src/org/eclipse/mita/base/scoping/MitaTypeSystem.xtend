@@ -23,6 +23,7 @@ import org.eclipse.mita.base.types.Type
 import org.eclipse.mita.base.types.TypesPackage
 import org.eclipse.mita.base.types.typesystem.GenericTypeSystem
 import org.eclipse.mita.base.types.typesystem.ITypeSystem
+import org.eclipse.xtext.resource.XtextResourceSet
 
 class MitaTypeSystem extends GenericTypeSystem {
 
@@ -87,7 +88,7 @@ class MitaTypeSystem extends GenericTypeSystem {
 	}
 
 	def Iterable<IEObjectDescription> getExportedTypes(URI libraryUri) {
-		val set = new ResourceSetImpl();
+		val set = new XtextResourceSet();
 		val resource = set.getResource(libraryUri, true);
 
 		val registry = IResourceServiceProvider.Registry.INSTANCE
