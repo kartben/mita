@@ -14,10 +14,12 @@ import org.eclipse.mita.platform.PlatformDSLRuntimeModule
 import org.eclipse.mita.platform.PlatformDSLStandaloneSetup
 import org.eclipse.mita.program.ProgramDslRuntimeModule
 import org.eclipse.mita.program.ProgramDslStandaloneSetup
+import org.eclipse.mita.cli.commands.LanguageServerCommand
 
 class Main {
 	protected static val commands = #{
 		'compile' -> CompileCommand,
+		'language-server' -> LanguageServerCommand,
 		'' -> UnknownCommand
 	}
 
