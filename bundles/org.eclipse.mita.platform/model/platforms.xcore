@@ -116,6 +116,7 @@ class Bus extends AbstractSystemResource { }
 class Connectivity extends AbstractSystemResource { }
 class InputOutput extends AbstractSystemResource { }
 class Sensor extends AbstractSystemResource { }
+class Configuration extends AbstractSystemResource { }
 
 class Platform extends AbstractSystemResource {
 	refers AbstractSystemResource[] resources

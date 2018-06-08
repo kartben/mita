@@ -57,6 +57,7 @@ AbstractSystemResource returns platform::AbstractSystemResource:
 	| 'connectivity' {platform::Connectivity}
 	| 'io' {platform::InputOutput}
 	| 'bus' {platform::Bus}	
+	| 'configuration' {platform::Configuration}
 	)
 	(instantiable=Instantiability)?
 	name=ID  '{'

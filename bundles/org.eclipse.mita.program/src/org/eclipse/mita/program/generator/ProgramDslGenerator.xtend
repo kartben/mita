@@ -200,7 +200,8 @@ class ProgramDslGenerator extends AbstractGenerator implements IGeneratorOnResou
 		
 		files += getUserFiles(input);
 		
-		val codefragment = makefileGenerator?.generateMakefile(null, files)
+		val setups = compilationUnits.flatMap[it.setup];
+		val codefragment = makefileGenerator?.generateMakefile(compilationUnits, files)
 		if(codefragment !== null && codefragment != CodeFragment.EMPTY)
 			fsa.produceFile('Makefile', someProgram, codefragment);
 	}

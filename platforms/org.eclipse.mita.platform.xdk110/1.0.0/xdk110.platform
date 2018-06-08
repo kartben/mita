@@ -755,6 +755,11 @@ bus many I2C {
 	signal register_int32(address: uint8, mode: I2CMode = ReadWrite): int32
 }
 
+configuration singleton Application {
+	generator "org.eclipse.mita.platform.generator.NullSystemResourceGenerator"
+	configuration-item applicationName : string = "EclipseMitaApplication"
+} 
+
 
 alias environment for BME280
 alias accelerometer for BMA280
@@ -781,6 +786,8 @@ platform XDK110 {
 	has WLAN
 	has MQTT
 	has HttpRestClient
+	
+	has Application
 	
 	event startup
 }

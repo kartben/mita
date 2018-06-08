@@ -370,6 +370,7 @@ class ProgramDslScopeProvider extends AbstractProgramDslScopeProvider {
 			PlatformPackage.Literals.CONNECTIVITY,
 			PlatformPackage.Literals.INPUT_OUTPUT,
 			PlatformPackage.Literals.SENSOR,
+			PlatformPackage.Literals.CONFIGURATION,
 			PlatformPackage.Literals.PLATFORM
 		]
 		return new FilteringScope(result, [ x |
