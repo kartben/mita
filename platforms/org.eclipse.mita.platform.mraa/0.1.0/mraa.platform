@@ -1,0 +1,8 @@
+package platforms.mraa;
+
+platform MRAA {
+	/**	validator "org.eclipse.mita.platform.mraa.platform.Validation" */
+	has LED
+	
+	event startup
+}
